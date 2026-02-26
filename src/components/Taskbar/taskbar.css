@@ -1,0 +1,67 @@
+.taskbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--taskbar-h);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+    background: linear-gradient(180deg, #1c4bbf, #163d9b);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.start {
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: linear-gradient(180deg, #2ecc71, #1a9c4a);
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.start.open {
+    filter: brightness(1.05);
+}
+
+.tabs {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    overflow: auto;
+}
+
+.tab {
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.10);
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.tab.active {
+    background: rgba(255, 255, 255, 0.20);
+}
+
+.tab.min {
+    opacity: 0.75;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    opacity: 0.95;
+}
+
+.status {
+    white-space: nowrap;
+    font-weight: 700;
+}

@@ -1,0 +1,48 @@
+.desktop-icons {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.desktop-icon {
+    width: 80px;
+    text-align: center;
+    color: #fff;
+    cursor: default;
+}
+
+.icon-image {
+    font-size: 40px;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.icon-image img {
+    width: 48px;
+    height: 48px;
+    pointer-events: none;
+}
+
+.icon-label {
+    font-size: 13px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* hover эффект как у Windows */
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+}
+
+/* эффект выбора */
+.desktop-icon:active {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.desktop-icon.selected {
+    background: rgba(255, 255, 255, 0.18);
+    outline: 1px solid rgba(255, 255, 255, 0.35);
+}

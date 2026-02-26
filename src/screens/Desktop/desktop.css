@@ -1,0 +1,117 @@
+:root {
+    --taskbar-h: 56px;
+}
+
+.desktop {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.wallpaper {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #4c79ff 0%, #1d47c9 40%, #2b6cc8 100%);
+    filter: saturate(0.9);
+    z-index: 0
+}
+
+.welcome h2 {
+    margin: 0 0 10px 0;
+}
+
+.welcome .headline {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.welcome .sub {
+    opacity: 0.85;
+    margin-bottom: 12px;
+}
+
+.welcome .avail {
+    margin-bottom: 16px;
+}
+
+.welcome .btnrow {
+    display: flex;
+    gap: 10px;
+}
+
+.welcome button {
+    padding: 10px 12px;
+    border: 1px solid #b9b9b9;
+    background: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.welcome button.primary {
+    background: #2f6bff;
+    color: #fff;
+    border-color: #1c52d6;
+}
+
+.links {
+    display: flex;
+    gap: 10px;
+}
+
+.linkbtn {
+    display: inline-block;
+    padding: 8px 10px;
+    border: 1px solid #b9b9b9;
+    border-radius: 6px;
+    background: #f5f5f5;
+    text-decoration: none;
+    color: #111;
+}
+
+.w-top {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.w-title {
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 2px;
+}
+
+.w-role {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.w-sub {
+    opacity: 0.85;
+}
+
+.w-badge {
+    margin-top: 6px;
+    display: inline-flex;
+    width: fit-content;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(47, 107, 255, 0.12);
+    border: 1px solid rgba(47, 107, 255, 0.25);
+    font-weight: 900;
+    font-size: 12px;
+}
+
+.w-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.w-footer {
+    margin-top: 12px;
+    opacity: 0.75;
+    font-size: 12px;
+}

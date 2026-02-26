@@ -1,0 +1,58 @@
+.os-window {
+    position: absolute;
+    background: #f3f3f3;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.os-window.active {
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.32);
+}
+
+.titlebar {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    background: linear-gradient(180deg, #2f6bff, #1d4fd0);
+    color: #fff;
+    cursor: grab;
+}
+
+.titlebar:active {
+    cursor: grabbing;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.controls {
+    display: flex;
+    gap: 6px;
+}
+
+.btn {
+    width: 30px;
+    height: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn.danger {
+    background: rgba(255, 0, 0, 0.25);
+}
+
+.content {
+    padding: 14px;
+    height: calc(100% - 36px);
+    overflow: auto;
+    background: #f9f9f9;
+}

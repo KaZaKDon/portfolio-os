@@ -1,0 +1,96 @@
+.cw {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cw-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.cw-title {
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.cw-sub {
+    opacity: 0.85;
+    font-weight: 800;
+}
+
+.cw-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cw-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cw-row:first-child {
+    border-top: none;
+}
+
+.cw-left {
+    min-width: 0;
+}
+
+.cw-label {
+    font-size: 12px;
+    font-weight: 900;
+    opacity: 0.7;
+    margin-bottom: 3px;
+}
+
+.cw-value {
+    font-weight: 800;
+    overflow: hidden;
+}
+
+.cw-link {
+    display: inline-block;
+    max-width: 260px;
+    /* чтобы не распирало окно */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #1d4fd0;
+    text-decoration: none;
+}
+
+.cw-link:hover {
+    text-decoration: underline;
+}
+
+.cw-btn {
+    min-width: 92px;
+    padding: 9px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    background: #f2f2f2;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 13px;
+    flex: 0 0 auto;
+}
+
+.cw-mini {
+    opacity: 0.75;
+    font-size: 13px;
+}
+
+@media (max-width: 520px) {
+    .cw-link {
+        max-width: 170px;
+    }
+}
