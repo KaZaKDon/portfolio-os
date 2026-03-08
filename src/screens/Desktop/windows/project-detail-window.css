@@ -1,0 +1,15 @@
+.project-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.project-detail-title {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.project-detail-text {
+    line-height: 1.5;
+    opacity: 0.9;
+}
