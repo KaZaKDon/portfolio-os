@@ -1,10 +1,27 @@
 import "./project-window.css";
+import { projects } from "../../../data/projects";
 
 export default function ProjectsWindow({
     onOpenEstimator,
     onOpenMessenger,
     onOpenMuseum,
 }) {
+    const handleOpenProject = (project) => {
+        if (project.actionType !== "window") return;
+
+        if (project.actionKey === "estimator" && onOpenEstimator) {
+            onOpenEstimator();
+        }
+
+        if (project.actionKey === "messenger" && onOpenMessenger) {
+            onOpenMessenger();
+        }
+
+        if (project.actionKey === "museum" && onOpenMuseum) {
+            onOpenMuseum();
+        }
+    };
+
     return (
         <div className="projects-window">
             <div className="pw-projects-title">Проекты</div>
@@ -13,68 +30,75 @@ export default function ProjectsWindow({
             </div>
 
             <div className="projects-list">
-                <div className="project-card">
-                    <div className="project-card-head">
-                        <div className="project-card-title">Мессенджер</div>
-                        <div className="project-card-tags">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>Socket.io</span>
-                            <span>Realtime</span>
+                {projects.map((project) => (
+                    <div className="project-card" key={project.id}>
+                        {project.preview ? (
+                            <img
+                                src={project.preview}
+                                className="project-preview"
+                                alt={project.title}
+                            />
+                        ) : (
+                            <div className="project-preview project-preview--empty">
+                                Нет preview
+                            </div>
+                        )}
+
+                        <div className="project-card-head">
+                            <div className="project-card-title">
+                                {project.title}
+                            </div>
+
+                            <div className="project-card-tags">
+                                {project.stack.map((tag) => (
+                                    <span key={tag}>{tag}</span>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="project-card-text">
+                            {project.shortDescription}
+                        </div>
+
+                        <div className="project-card-actions">
+                            <button
+                                className="project-btn primary"
+                                onClick={() => handleOpenProject(project)}
+                            >
+                                Открыть
+                            </button>
+
+                            <a
+                                href={project.demoUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="project-btn"
+                            >
+                                <span className="btn-icon">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z" />
+                                        <path d="M5 5h6v2H7v10h10v-4h2v6H5V5z" />
+                                    </svg>
+                                </span>
+                                Demo
+                            </a>
+
+                            <a
+                                href={project.githubUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="project-btn"
+                            >
+                                <span className="btn-icon">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 .5A12 12 0 000 12.7a12.2 12.2 0 008.2 11.6c.6.1.8-.3.8-.6v-2.3c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1.1.1-.8.4-1.4.7-1.7-2.7-.3-5.6-1.4-5.6-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1.1-.4 3.6 1.3a12.5 12.5 0 016.6 0c2.5-1.7 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2.1 1.3 3.5 0 4.7-2.9 5.7-5.6 6.1.4.3.8 1 .8 2v3c0 .3.2.7.8.6A12.2 12.2 0 0024 12.7 12 12 0 0012 .5z" />
+                                    </svg>
+                                </span>
+                                GitHub
+                            </a>
                         </div>
                     </div>
-
-                    <div className="project-card-text">
-                        Fullstack-приложение для обмена сообщениями в реальном времени:
-                        личные и групповые чаты, авторизация, медиа и живые обновления.
-                    </div>
-
-                    <div className="project-card-actions">
-                        <button onClick={onOpenMessenger}>Открыть</button>
-                    </div>
-                </div>
-
-                <div className="project-card">
-                    <div className="project-card-head">
-                        <div className="project-card-title">Сметчик</div>
-                        <div className="project-card-tags">
-                            <span>React</span>
-                            <span>Vite</span>
-                            <span>JavaScript</span>
-                            <span>LocalStorage</span>
-                        </div>
-                    </div>
-
-                    <div className="project-card-text">
-                        Интерактивный калькулятор стоимости и сроков разработки сайта
-                        с учётом экранов, адаптивности и дополнительных параметров.
-                    </div>
-
-                    <div className="project-card-actions">
-                        <button onClick={onOpenEstimator}>Открыть</button>
-                    </div>
-                </div>
-
-                <div className="project-card">
-                    <div className="project-card-head">
-                        <div className="project-card-title">Музей</div>
-                        <div className="project-card-tags">
-                            <span>React</span>
-                            <span>UI</span>
-                            <span>Responsive</span>
-                            <span>Content</span>
-                        </div>
-                    </div>
-
-                    <div className="project-card-text">
-                        Информационный проект с маршрутами, контентными разделами
-                        и адаптивным интерфейсом для просмотра на разных устройствах.
-                    </div>
-
-                    <div className="project-card-actions">
-                        <button onClick={onOpenMuseum}>Открыть</button>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     );
