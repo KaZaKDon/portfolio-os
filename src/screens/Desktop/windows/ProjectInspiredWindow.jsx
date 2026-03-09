@@ -1,8 +1,8 @@
 import ProjectGallery from "../components/ProjectGallery";
 import { projects } from "../../../data/projects";
 
-export default function ProjectMessengerWindow() {
-    const project = projects.find((item) => item.id === "messenger");
+export default function ProjectInspiredWindow() {
+    const project = projects.find((item) => item.id === "inspired");
 
     return <ProjectGallery project={project} />;
 }

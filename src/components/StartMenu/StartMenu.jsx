@@ -30,10 +30,6 @@ export default function StartMenu({ open, onClose, onAction }) {
             </button>
 
             <div className="sep" />
-
-            <button className="item" onClick={() => { onAction("CLASSIC"); onClose(); }}>
-                ↔ Switch to Classic View
-            </button>
         </div>
     );
 }

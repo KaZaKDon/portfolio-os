@@ -14,6 +14,7 @@ import ProjectsWindow from "./windows/ProjectsWindow";
 import ProjectEstimatorWindow from "./windows/ProjectEstimatorWindow";
 import ProjectMessengerWindow from "./windows/ProjectMessengerWindow";
 import ProjectMuseumWindow from "./windows/ProjectMuseumWindow";
+import ProjectInspiredWindow from "./windows/ProjectInspiredWindow";
 
 import "./desktop.css";
 
@@ -158,6 +159,19 @@ export default function Desktop() {
         });
     }
 
+    function openInspired() {
+    openWindow({
+        type: WINDOW_TYPES.PROJECT_INSPIRED,
+        title: "Inspired Store",
+        icon: "project",
+        x: 240,
+        y: 120,
+        w: 720,
+        h: 720,
+        singletonKey: "PROJECT_INSPIRED",
+    });
+}
+
     useEffect(() => {
         function onKeyDown(e) {
             if (e.key === "Escape") {
@@ -179,7 +193,9 @@ export default function Desktop() {
             <DesktopIcons
                 onOpen={(id) => {
                     if (id === "projects") openProjects();
-                    if (id === "estimator") openEstimator();
+                    if (id === "estimator") {
+                        window.open("https://vkazakdon.ru/calculator/", "_blank", "noopener,noreferrer");
+                    }
                     if (id === "about") openProfile("system");
                     if (id === "resume") openResume();
                     if (id === "contact") openContact();
@@ -197,9 +213,6 @@ export default function Desktop() {
                     if (key === "RESUME") openResume();
                     if (key === "CONTACT") openContact();
                     if (key === "PROJECTS") openProjects();
-                    if (key === "CLASSIC") {
-                        alert("Classic view: подключим позже через router.");
-                    }
                 }}
             />
 
@@ -227,6 +240,7 @@ export default function Desktop() {
                             onOpenEstimator={openEstimator}
                             onOpenMessenger={openMessenger}
                             onOpenMuseum={openMuseum}
+                            onOpenInspired={openInspired}
                         />
                     );
                 } else if (win.type === WINDOW_TYPES.PROJECT_ESTIMATOR) {
@@ -235,7 +249,9 @@ export default function Desktop() {
                     content = <ProjectMessengerWindow />;
                 } else if (win.type === WINDOW_TYPES.PROJECT_MUSEUM) {
                     content = <ProjectMuseumWindow />;
-                }
+                } else if (win.type === WINDOW_TYPES.PROJECT_INSPIRED) {
+    content = <ProjectInspiredWindow />;
+}
 
                 return (
                     <Window
