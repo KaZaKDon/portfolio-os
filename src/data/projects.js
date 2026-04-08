@@ -18,6 +18,11 @@ import messengerChat from "../assets/projects/messenger/messengerChat.png";
 import messengerLogin from "../assets/projects/messenger/messengerLogin.png";
 import messengerMenu from "../assets/projects/messenger/messengerMenu.png";
 
+import studioMain from "../assets/projects/external/studioMain.png";
+import studioServices from "../assets/projects/external/studioServices.png";
+import studioProjects from "../assets/projects/external/studioProjects.png";
+import studioForm from "../assets/projects/external/studioForm.png";
+
 export const projects = [
     {
         id: "estimator",
@@ -161,5 +166,39 @@ export const projects = [
 
         actionType: "window",
         actionKey: "inspired"
-    }
+    },
+    {
+    id: "studio",
+    title: "VKazakDon Studio",
+
+    shortDescription:
+        "Development studio website presenting services, portfolio and client interaction.",
+
+    description:
+        "A studio website designed to present development services, showcase projects, and provide a clear communication channel with clients. The project focuses on clean UI, structured content, and business-oriented presentation.",
+
+    features: [
+        "Service presentation and positioning",
+        "Project portfolio showcase",
+        "Contact and client interaction flow",
+        "Responsive layout",
+        "Modern landing page structure"
+    ],
+
+    stack: ["React", "Vite", "CSS"],
+
+    preview: studioMain, // картинка
+    screenshots: [
+        studioMain,
+        studioServices,
+        studioProjects,
+        studioForm
+    ],
+
+    demoUrl: "https://vkazakdon.ru", // или куда ты его поставишь
+    githubUrl: "",
+
+    actionType: "window",
+    actionKey: "studio"
+}
 ];

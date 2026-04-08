@@ -15,6 +15,7 @@ import ProjectEstimatorWindow from "./windows/ProjectEstimatorWindow";
 import ProjectMessengerWindow from "./windows/ProjectMessengerWindow";
 import ProjectMuseumWindow from "./windows/ProjectMuseumWindow";
 import ProjectInspiredWindow from "./windows/ProjectInspiredWindow";
+import ProjectStudioWindow from "./windows/ProjectStudioWindow";
 
 import "./desktop.css";
 
@@ -160,17 +161,30 @@ export default function Desktop() {
     }
 
     function openInspired() {
-    openWindow({
-        type: WINDOW_TYPES.PROJECT_INSPIRED,
-        title: "Inspired Store",
-        icon: "project",
-        x: 240,
-        y: 120,
-        w: 720,
-        h: 720,
-        singletonKey: "PROJECT_INSPIRED",
-    });
-}
+        openWindow({
+            type: WINDOW_TYPES.PROJECT_INSPIRED,
+            title: "Inspired Store",
+            icon: "project",
+            x: 240,
+            y: 120,
+            w: 720,
+            h: 720,
+            singletonKey: "PROJECT_INSPIRED",
+        });
+    }
+
+    function openStudio() {
+        openWindow({
+            type: WINDOW_TYPES.PROJECT_STUDIO,
+            title: "Студия",
+            icon: "project",
+            x: 240,
+            y: 120,
+            w: 720,
+            h: 720,
+            singletonKey: "PROJECT_STUDIO",
+        });
+    }
 
     useEffect(() => {
         function onKeyDown(e) {
@@ -241,6 +255,7 @@ export default function Desktop() {
                             onOpenMessenger={openMessenger}
                             onOpenMuseum={openMuseum}
                             onOpenInspired={openInspired}
+                            onOpenStudio={openStudio}
                         />
                     );
                 } else if (win.type === WINDOW_TYPES.PROJECT_ESTIMATOR) {
@@ -250,8 +265,10 @@ export default function Desktop() {
                 } else if (win.type === WINDOW_TYPES.PROJECT_MUSEUM) {
                     content = <ProjectMuseumWindow />;
                 } else if (win.type === WINDOW_TYPES.PROJECT_INSPIRED) {
-    content = <ProjectInspiredWindow />;
-}
+                    content = <ProjectInspiredWindow />;
+                } else if (win.type === WINDOW_TYPES.PROJECT_STUDIO) {
+                    content = <ProjectStudioWindow />;
+                }
 
                 return (
                     <Window
