@@ -1,55 +1,173 @@
-import estimatorDesktopMain from "../assets/projects/estimator/estimator-desktop-main.png";
-import estimatorDesktopResult from "../assets/projects/estimator/estimator-desktop-result.png";
-import estimatorTablet from "../assets/projects/estimator/estimator-tablet.png";
+import inspiredMain from "../assets/projects/inspired/inspired-main.png";
+import inspiredCatalog from "../assets/projects/inspired/inspired-catalog.png";
+import inspiredProduct from "../assets/projects/inspired/inspired-product.png";
+import inspiredMobile from "../assets/projects/inspired/inspired-mobile.png";
+
+import museumMain from "../assets/projects/museum/museum-main.png";
+import museumMap from "../assets/projects/museum/museum-map.png";
+import museumPlace from "../assets/projects/museum/museum-place.png";
+import museumMobile from "../assets/projects/museum/museum-mobile.png";
+
+import messengerMain from "../assets/projects/messenger/messenger-main.png";
+import messengerChat from "../assets/projects/messenger/messenger-chat.png";
+import messengerProfile from "../assets/projects/messenger/messenger-profile.png";
+import messengerMobile from "../assets/projects/messenger/messenger-mobile.png";
+
+import estimatorMain from "../assets/projects/estimator/estimator-main.png";
+import estimatorForm from "../assets/projects/estimator/estimator-form.png";
+import estimatorResult from "../assets/projects/estimator/estimator-result.png";
 import estimatorMobile from "../assets/projects/estimator/estimator-mobile.png";
 
-import museumDesktopMap from "../assets/projects/museum/museum-desktop-map.png";
-import museumObjectCard from "../assets/projects/museum/museum-desktop-object.png";
-import museumMobileCard from "../assets/projects/museum/museum-tablet.png";
-import museumNature from "../assets/projects/museum/museum-mobile.png";
-
-import inspiredDesktopHome from "../assets/projects/inspired/desktop.png";
-import inspiredDesktopCatalog from "../assets/projects/inspired/desktop-tab.png";
-import inspiredDesktopProduct from "../assets/projects/inspired/desktop-zak.png";
-import inspiredMobileCheckout from "../assets/projects/inspired/mobile.png";
-import inspiredTabletCheckout from "../assets/projects/inspired/tablet.png";
-
-import messengerChat from "../assets/projects/messenger/messengerChat.png";
-import messengerLogin from "../assets/projects/messenger/messengerLogin.png";
-import messengerMenu from "../assets/projects/messenger/messengerMenu.png";
+import hotelMain from "../assets/projects/hotel/hotel-main.png";
+import hotelRooms from "../assets/projects/hotel/hotel-rooms.png";
+import hotelBooking from "../assets/projects/hotel/hotel-booking.png";
+import hotelMobile from "../assets/projects/hotel/hotel-mobile.png";
 
 import studioMain from "../assets/projects/external/studioMain.png";
 import studioServices from "../assets/projects/external/studioServices.png";
 import studioProjects from "../assets/projects/external/studioProjects.png";
 import studioForm from "../assets/projects/external/studioForm.png";
 
+import fishingMain from "../assets/projects/fishing/fishing-main.png";
+import fishingMap from "../assets/projects/fishing/fishing-map.png";
+import fishingGameplay from "../assets/projects/fishing/fishing-gameplay.png";
+import fishingInventory from "../assets/projects/fishing/fishing-inventory.png";
+
 export const projects = [
     {
-        id: "estimator",
-        title: "Сметчик",
+        id: "inspired",
+        title: "Inspired Store",
 
         shortDescription:
-            "Interactive calculator for estimating website development cost and delivery time. Supports screen-based calculation, responsiveness options, quality settings, and feature complexity. Built with React and optimized for fast client-side interaction.",
+            "Интернет-магазин с современным интерфейсом, каталогом товаров и адаптивным дизайном.",
 
         description:
-            "A client-side calculator for estimating website development cost and timeline based on project scope. The tool allows configuring screens, responsiveness, design quality, animations, and functional complexity, producing an instant estimation of project budget and development time.",
+            "Проект интернет-магазина с акцентом на современный UI/UX, удобную навигацию и адаптивность. Реализованы страницы каталога, карточек товаров, фильтрация и структура, подходящая для масштабирования под реальные ecommerce-проекты.",
 
         features: [
-            "Screen-based website project estimation",
-            "Configurable responsiveness and UI complexity",
-            "Instant cost and timeline calculation",
-            "Client-side state management with React",
-            "Fast interactive UI without backend dependency"
+            "Каталог товаров и фильтрация",
+            "Адаптивный интерфейс",
+            "Карточки товаров",
+            "Современный UI/UX",
+            "Готовая структура для ecommerce"
         ],
 
-        stack: ["React", "Vite", "JavaScript", "LocalStorage"],
+        stack: ["React", "Vite", "JavaScript", "CSS"],
 
-        preview: estimatorDesktopMain,
+        preview: inspiredMain,
 
         screenshots: [
-            estimatorDesktopMain,
-            estimatorDesktopResult,
-            estimatorTablet,
+            inspiredMain,
+            inspiredCatalog,
+            inspiredProduct,
+            inspiredMobile
+        ],
+
+        demoUrl: "",
+        githubUrl: "https://github.com/KaZaKDon/Inspired",
+
+        actionType: "window",
+        actionKey: "inspired"
+    },
+
+    {
+        id: "museum",
+        title: "Шолоховский край",
+
+        shortDescription:
+            "Интерактивная туристическая карта с историческими и природными объектами Шолоховского района.",
+
+        description:
+            "Интерактивный туристический проект, объединяющий карту достопримечательностей, исторических мест, музеев, памятников и природных объектов. Проект разработан с упором на адаптивность, удобство навигации и визуальную подачу информации.",
+
+        features: [
+            "Интерактивная карта на Leaflet",
+            "Категории и фильтрация объектов",
+            "Информационные панели и модальные окна",
+            "Полная адаптация под мобильные устройства",
+            "Туристическая навигация и поиск"
+        ],
+
+        stack: ["JavaScript", "Leaflet", "HTML", "CSS"],
+
+        preview: museumMain,
+
+        screenshots: [
+            museumMain,
+            museumMap,
+            museumPlace,
+            museumMobile
+        ],
+
+        demoUrl: "https://krai.vkazakdon.ru",
+        githubUrl: "https://github.com/KaZaKDon/museum",
+
+        actionType: "window",
+        actionKey: "museum"
+    },
+
+    {
+        id: "messenger",
+        title: "Realtime Messenger",
+
+        shortDescription:
+            "Интерфейс мессенджера с современным дизайном и системой общения в реальном времени.",
+
+        description:
+            "Проект интерфейса современного мессенджера с акцентом на UX, структуру чатов и адаптивный дизайн. Включает экран переписок, профиль пользователя и мобильную адаптацию.",
+
+        features: [
+            "Интерфейс чатов",
+            "Современный UI мессенджера",
+            "Адаптивный дизайн",
+            "Профиль пользователя",
+            "Структура для realtime-приложений"
+        ],
+
+        stack: ["React", "JavaScript", "CSS"],
+
+        preview: messengerMain,
+
+        screenshots: [
+            messengerMain,
+            messengerChat,
+            messengerProfile,
+            messengerMobile
+        ],
+
+        demoUrl: "",
+        githubUrl: "https://github.com/KaZaKDon/messenger",
+
+        actionType: "window",
+        actionKey: "messenger"
+    },
+
+    {
+        id: "estimator",
+        title: "Project Calculator",
+
+        shortDescription:
+            "Калькулятор оценки стоимости и сроков разработки проектов.",
+
+        description:
+            "Интерактивный калькулятор для предварительной оценки стоимости и сроков разработки веб-проектов. Реализована система выбора услуг, расчётов и адаптивный интерфейс.",
+
+        features: [
+            "Расчёт стоимости проекта",
+            "Выбор услуг и функционала",
+            "Интерактивные формы",
+            "Адаптивный интерфейс",
+            "UI для коммерческих проектов"
+        ],
+
+        stack: ["React", "JavaScript", "CSS"],
+
+        preview: estimatorMain,
+
+        screenshots: [
+            estimatorMain,
+            estimatorForm,
+            estimatorResult,
             estimatorMobile
         ],
 
@@ -61,144 +179,108 @@ export const projects = [
     },
 
     {
-        id: "museum",
-        title: "Шолоховский край",
+        id: "hotel",
+        title: "Hotel Booking Platform",
 
         shortDescription:
-            "Interactive tourist map of the Sholokhov region with categorized locations, object cards, and route building. Designed for convenient exploration of museums, monuments, nature spots, and historical places across desktop and mobile devices.",
+            "Сайт гостиницы с системой бронирования, каталогом номеров и адаптивным интерфейсом.",
 
         description:
-            "An interactive tourist map designed to help users explore museums, monuments, nature spots, and historical places in the Sholokhov region. The project focuses on convenient navigation and clear presentation of regional cultural locations.",
+            "Современный гостиничный сайт с акцентом на презентацию номеров, онлайн-бронирование и удобство пользователей. Реализованы адаптивные страницы, формы бронирования, карточки номеров и административный интерфейс для управления заявками.",
 
         features: [
-            "Interactive map interface built with Leaflet",
-            "Location cards with structured information",
-            "Category-based navigation of tourist places",
-            "Responsive layout for desktop and mobile devices",
-            "Geographic content presentation for tourism products"
+            "Каталог гостиничных номеров",
+            "Интерактивная форма бронирования",
+            "Полная адаптация под мобильные устройства",
+            "Административная панель",
+            "Современный интерфейс для гостиничного бизнеса"
         ],
 
-        stack: ["JavaScript", "Leaflet", "Responsive UI"],
+        stack: ["React", "Vite", "JavaScript", "CSS"],
 
-        preview: museumDesktopMap,
+        preview: hotelMain,
 
         screenshots: [
-            museumDesktopMap,
-            museumObjectCard,
-            museumMobileCard,
-            museumNature
+            hotelMain,
+            hotelRooms,
+            hotelBooking,
+            hotelMobile
         ],
 
-        demoUrl: "",
-        githubUrl: "https://github.com/KaZaKDon/museum",
+        demoUrl: "https://hotel.vkazakdon.ru",
+        githubUrl: "",
 
         actionType: "window",
-        actionKey: "museum"
+        actionKey: "hotel"
     },
 
     {
-        id: "messenger",
-        title: "Kazachiy Krug Messenger",
+        id: "fishing",
+        title: "Don Fishing",
 
         shortDescription:
-            "Real-time messaging platform with personal and group chats, phone-based authentication, and live message updates. Includes chat navigation, user profiles, and interactive communication powered by WebSockets.",
+            "Атмосферная игра про рыбалку с механикой заброса, натяжением лески и системой ловли рыбы.",
 
         description:
-            "A real-time messaging platform designed for fast communication between users and groups. The project demonstrates live messaging, user interaction flows, and real-time updates powered by WebSockets.",
+            "Игровой проект, посвящённый рыбалке на Дону. Игрок может путешествовать между локациями, ловить рыбу с использованием механики натяжения и подсечки, улучшать снасти и исследовать атмосферные природные места.",
 
         features: [
-            "Real-time messaging powered by WebSockets",
-            "Personal and group chat communication",
-            "Phone-based authentication flow",
-            "Chat navigation and message state management",
-            "Frontend–backend interaction using React and Node.js"
+            "Механика заброса и вываживания",
+            "Система натяжения лески",
+            "Интерактивная карта локаций",
+            "Система улучшения снастей",
+            "Адаптивный игровой интерфейс"
         ],
 
-        stack: ["React", "Node.js", "Socket.io"],
+        stack: ["React", "JavaScript", "Game UI", "CSS"],
 
-        preview: messengerChat,
+        preview: fishingMain,
 
         screenshots: [
-            messengerLogin,
-            messengerMenu,
-            messengerChat
+            fishingMain,
+            fishingMap,
+            fishingGameplay,
+            fishingInventory
         ],
 
         demoUrl: "",
-        githubUrl: "https://github.com/KaZaKDon/messenger",
+        githubUrl: "",
 
         actionType: "window",
-        actionKey: "messenger"
+        actionKey: "fishing"
     },
-
     {
-        id: "inspired",
-        title: "Inspired Store",
+        id: "studio",
+        title: "VKazakDon Studio",
 
         shortDescription:
-            "Responsive e-commerce storefront featuring product catalog, product detail pages, cart interaction, and checkout flow. Demonstrates key online store functionality including browsing, product selection, and order placement.",
+            "Development studio website presenting services, portfolio and client interaction.",
 
         description:
-            "An online store interface demonstrating core e-commerce flows: product browsing, detailed product pages, cart management, and checkout interaction. The project focuses on responsive layout and product presentation.",
+            "A studio website designed to present development services, showcase projects, and provide a clear communication channel with clients. The project focuses on clean UI, structured content, and business-oriented presentation.",
 
         features: [
-            "Product catalog with structured item presentation",
-            "Product detail pages with size and color options",
-            "Shopping cart interaction and checkout flow",
-            "Responsive storefront layout for all devices",
-            "Vanilla JavaScript UI architecture without frameworks"
+            "Service presentation and positioning",
+            "Project portfolio showcase",
+            "Contact and client interaction flow",
+            "Responsive layout",
+            "Modern landing page structure"
         ],
 
-        stack: ["HTML", "CSS", "JavaScript"],
+        stack: ["React", "Vite", "CSS"],
 
-        preview: inspiredDesktopHome,
-
+        preview: studioMain, // картинка
         screenshots: [
-            inspiredDesktopHome,
-            inspiredDesktopCatalog,
-            inspiredDesktopProduct,
-            inspiredMobileCheckout,
-            inspiredTabletCheckout
+            studioMain,
+            studioServices,
+            studioProjects,
+            studioForm
         ],
 
-        demoUrl: "",
-        githubUrl: "https://github.com/KaZaKDon/Inspired",
+        demoUrl: "https://vkazakdon.ru", // или куда ты его поставишь
+        githubUrl: "",
 
         actionType: "window",
-        actionKey: "inspired"
-    },
-    {
-    id: "studio",
-    title: "VKazakDon Studio",
-
-    shortDescription:
-        "Development studio website presenting services, portfolio and client interaction.",
-
-    description:
-        "A studio website designed to present development services, showcase projects, and provide a clear communication channel with clients. The project focuses on clean UI, structured content, and business-oriented presentation.",
-
-    features: [
-        "Service presentation and positioning",
-        "Project portfolio showcase",
-        "Contact and client interaction flow",
-        "Responsive layout",
-        "Modern landing page structure"
-    ],
-
-    stack: ["React", "Vite", "CSS"],
-
-    preview: studioMain, // картинка
-    screenshots: [
-        studioMain,
-        studioServices,
-        studioProjects,
-        studioForm
-    ],
-
-    demoUrl: "https://vkazakdon.ru", // или куда ты его поставишь
-    githubUrl: "",
-
-    actionType: "window",
-    actionKey: "studio"
-}
+        actionKey: "studio"
+    }
 ];
