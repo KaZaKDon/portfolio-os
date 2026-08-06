@@ -16,6 +16,9 @@ import ProjectMessengerWindow from "./windows/ProjectMessengerWindow";
 import ProjectMuseumWindow from "./windows/ProjectMuseumWindow";
 import ProjectInspiredWindow from "./windows/ProjectInspiredWindow";
 import ProjectStudioWindow from "./windows/ProjectStudioWindow";
+import ProjectHotelWindow from "./windows/ProjectHotelWindow";
+import ProjectFishingWindow from "./windows/ProjectFishingWindow";
+import ProjectGoStudyWindow from "./windows/ProjectGoStudyWindow";
 
 import "./desktop.css";
 
@@ -186,6 +189,45 @@ export default function Desktop() {
         });
     }
 
+    function openHotel() {
+        openWindow({
+            type: WINDOW_TYPES.PROJECT_HOTEL,
+            title: "Сайт гостиницы",
+            icon: "project",
+            x: 240,
+            y: 120,
+            w: 720,
+            h: 720,
+            singletonKey: "PROJECT_HOTEL",
+        });
+    }
+
+    function openFishing() {
+        openWindow({
+            type: WINDOW_TYPES.PROJECT_FISHING,
+            title: "Рыбалка на Дону",
+            icon: "project",
+            x: 240,
+            y: 120,
+            w: 720,
+            h: 720,
+            singletonKey: "PROJECT_FISHING",
+        });
+    }
+
+    function openGoStudy() {
+        openWindow({
+            type: WINDOW_TYPES.PROJECT_GOSTUDY,
+            title: "GoStudy",
+            icon: "project",
+            x: 240,
+            y: 120,
+            w: 720,
+            h: 720,
+            singletonKey: "PROJECT_GOSTUDY",
+        });
+    }
+
     useEffect(() => {
         function onKeyDown(e) {
             if (e.key === "Escape") {
@@ -256,6 +298,9 @@ export default function Desktop() {
                             onOpenMuseum={openMuseum}
                             onOpenInspired={openInspired}
                             onOpenStudio={openStudio}
+                            onOpenHotel={openHotel}
+                            onOpenFishing={openFishing}
+                            onOpenGoStudy={openGoStudy}
                         />
                     );
                 } else if (win.type === WINDOW_TYPES.PROJECT_ESTIMATOR) {
@@ -268,6 +313,12 @@ export default function Desktop() {
                     content = <ProjectInspiredWindow />;
                 } else if (win.type === WINDOW_TYPES.PROJECT_STUDIO) {
                     content = <ProjectStudioWindow />;
+                } else if (win.type === WINDOW_TYPES.PROJECT_HOTEL) {
+                    content = <ProjectHotelWindow />;
+                } else if (win.type === WINDOW_TYPES.PROJECT_FISHING) {
+                    content = <ProjectFishingWindow />;
+                } else if (win.type === WINDOW_TYPES.PROJECT_GOSTUDY) {
+                    content = <ProjectGoStudyWindow />;
                 }
 
                 return (

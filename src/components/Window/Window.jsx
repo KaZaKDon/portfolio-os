@@ -1,6 +1,9 @@
 import { useMemo, useRef, useState } from "react";
 import "./window.css";
 
+const MOBILE_WINDOW_BREAKPOINT = 750;
+const WINDOW_SIDE_GAP = 8;
+
 export default function Window({
     win,
     isActive,
@@ -15,33 +18,22 @@ export default function Window({
     const [drag, setDrag] = useState(null);
 
     const style = useMemo(() => {
-        if (win.isMaximized) {
-            return {
-                left: 0,
-                top: 0,
-                width: "100%",
-                height: "calc(100% - var(--taskbar-h))",
-                zIndex: win.z,
-            };
-        }
         return {
-            left: win.x,
-            top: win.y,
-            width: win.w,
-            height: win.h,
+            "--win-x": `${win.x}px`,
+            "--win-y": `${win.y}px`,
+            "--win-w": `${win.w}px`,
+            "--win-h": `${win.h}px`,
             zIndex: win.z,
         };
     }, [win]);
 
     function onPointerDownTitle(e) {
-        // если клик по кнопкам управления — НЕ начинаем drag
         if (e.target.closest?.(".controls")) return;
-
-        // только ЛКМ
         if (e.button !== 0) return;
 
         onFocus?.();
-        if (win.isMaximized) return;
+
+        if (win.isMaximized || window.innerWidth <= MOBILE_WINDOW_BREAKPOINT) return;
 
         const el = ref.current;
         if (!el) return;
@@ -63,12 +55,16 @@ export default function Window({
         const dx = e.clientX - drag.startX;
         const dy = e.clientY - drag.startY;
 
-        // простое ограничение в пределах экрана (без учета snap)
-        const maxX = window.innerWidth - 120;
-        const maxY = window.innerHeight - 120 - parseInt(getComputedStyle(document.documentElement).getPropertyValue("--taskbar-h") || "56", 10);
+        const taskbarHeight = parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue("--taskbar-h") || "56",
+            10
+        );
 
-        const nextX = Math.max(0, Math.min(maxX, drag.originX + dx));
-        const nextY = Math.max(0, Math.min(maxY, drag.originY + dy));
+        const maxX = window.innerWidth - Math.min(win.w, window.innerWidth - WINDOW_SIDE_GAP * 2) - WINDOW_SIDE_GAP;
+        const maxY = window.innerHeight - taskbarHeight - Math.min(win.h, window.innerHeight - taskbarHeight - WINDOW_SIDE_GAP * 2) - WINDOW_SIDE_GAP;
+
+        const nextX = Math.max(WINDOW_SIDE_GAP, Math.min(maxX, drag.originX + dx));
+        const nextY = Math.max(WINDOW_SIDE_GAP, Math.min(maxY, drag.originY + dy));
 
         onMove?.(nextX, nextY);
     }
@@ -91,11 +87,15 @@ export default function Window({
         >
             <div className="titlebar" onPointerDown={onPointerDownTitle}>
                 <div className="title">{win.title}</div>
+
                 <div className="controls">
                     <button
                         className="btn"
                         onPointerDown={(e) => e.stopPropagation()}
-                        onClick={(e) => { e.stopPropagation(); onMinimize?.(); }}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onMinimize?.();
+                        }}
                         aria-label="Minimize"
                     >
                         —
@@ -104,7 +104,10 @@ export default function Window({
                     <button
                         className="btn"
                         onPointerDown={(e) => e.stopPropagation()}
-                        onClick={(e) => { e.stopPropagation(); onMaximize?.(); }}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onMaximize?.();
+                        }}
                         aria-label="Maximize"
                     >
                         ▢
@@ -113,16 +116,18 @@ export default function Window({
                     <button
                         className="btn danger"
                         onPointerDown={(e) => e.stopPropagation()}
-                        onClick={(e) => { e.stopPropagation(); onClose?.(); }}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onClose?.();
+                        }}
                         aria-label="Close"
                     >
                         ✕
                     </button>
                 </div>
             </div>
-            <div className="content">
-                {children}
-            </div>
+
+            <div className="content">{children}</div>
         </div>
     );
 }

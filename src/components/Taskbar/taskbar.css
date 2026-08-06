@@ -65,3 +65,46 @@
     white-space: nowrap;
     font-weight: 700;
 }
+
+@media (max-width: 750px) {
+    .taskbar {
+        height: auto;
+        min-height: var(--taskbar-h);
+        padding: 4px;
+        align-items: stretch;
+        gap: 4px;
+    }
+
+    .taskbar-windows {
+        min-width: 0;
+        flex: 1;
+        display: flex;
+        gap: 4px;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .taskbar-windows::-webkit-scrollbar {
+        display: none;
+    }
+
+    .window-tab {
+        min-width: 78px;
+        max-width: 110px;
+        flex: 0 0 auto;
+        padding: 0 8px;
+        font-size: 12px;
+    }
+
+    .window-tab span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .start-button {
+        flex: 0 0 auto;
+        min-width: 58px;
+        padding: 0 10px;
+    }
+}

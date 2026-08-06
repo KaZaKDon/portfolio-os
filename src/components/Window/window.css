@@ -1,5 +1,10 @@
 .os-window {
     position: absolute;
+    left: var(--win-x);
+    top: var(--win-y);
+    width: var(--win-w);
+    height: var(--win-h);
+
     background: #f3f3f3;
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -55,4 +60,43 @@
     height: calc(100% - 36px);
     overflow: auto;
     background: #f9f9f9;
+}
+
+@media (max-width: 750px) {
+    .os-window {
+        left: 8px !important;
+        top: 8px !important;
+        width: calc(100vw - 16px) !important;
+        height: calc(100vh - var(--taskbar-h) - 16px) !important;
+        max-width: calc(100vw - 16px);
+        max-height: calc(100vh - var(--taskbar-h) - 16px);
+        border-radius: 8px;
+    }
+
+    .titlebar {
+        height: 34px;
+        padding: 0 8px;
+    }
+
+    .title {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 13px;
+    }
+
+    .controls {
+        flex-shrink: 0;
+    }
+
+    .btn {
+        width: 28px;
+        height: 24px;
+    }
+
+    .content {
+        height: calc(100% - 34px);
+        padding: 10px;
+    }
 }

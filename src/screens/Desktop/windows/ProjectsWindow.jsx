@@ -6,7 +6,11 @@ export default function ProjectsWindow({
     onOpenMessenger,
     onOpenMuseum,
     onOpenInspired,
-    onOpenStudio, // 👈 добавили
+    onOpenStudio,
+    onOpenHotel,
+    onOpenFishing, // 👈 добавили
+    onOpenNativeplaces,
+    onOpenGoStudy
 }) {
     const handleOpenProject = (project) => {
         if (project.actionType !== "window") return;
@@ -33,6 +37,26 @@ export default function ProjectsWindow({
 
         if (project.actionKey === "studio" && onOpenStudio) {
             onOpenStudio();
+            return;
+        }
+
+        if (project.actionKey === "hotel" && onOpenHotel) {
+            onOpenHotel();
+            return;
+        }
+
+        if (project.actionKey === "fishing" && onOpenFishing) {
+            onOpenFishing();
+            return;
+        }
+
+        if (project.actionKey === "nativeplaces" && onOpenNativeplaces) {
+            onOpenNativeplaces();
+            return;
+        }
+
+        if (project.actionKey === "gostudy" && onOpenGoStudy) {
+            onOpenGoStudy();
             return;
         }
     };
